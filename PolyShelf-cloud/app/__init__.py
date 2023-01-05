@@ -33,20 +33,15 @@ app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 db = SQLAlchemy(app)
 login = LoginManager()
 
-# ------------------------------- controller imports -----------------------------------------
-#
-# Each of them is abstracted as blueprints specific to their tasks
 
 from app.controllers.main import main
 from app.controllers.auth import auth 
 
-# Registering imported Blueprints
 
 app.register_blueprint(main)
 app.register_blueprint(auth)
 
 
-# ------------------------------- Initialising DB -------------------------------------------
 
 db.init_app(app)
 db.create_all()
