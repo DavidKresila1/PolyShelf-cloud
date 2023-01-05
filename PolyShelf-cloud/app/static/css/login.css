@@ -1,0 +1,75 @@
+body {
+  background-color: #789E9E;
+}
+
+
+.field {
+  
+}
+
+input {
+  background-color: antiquewhite;
+  border: 2px solid #789E9E;
+  width: 350px;
+  padding-left: 25px;
+  text-decoration: none;
+  padding-top: 15px;
+  margin: 10px;
+  border-radius: 25px;
+}
+
+.field > .checkbox > input{
+  color: #789E9E;
+  padding: 15px;
+  display: inline;
+  border: solid 2px #789E9E;
+  border-radius: 25px;
+  width: 50px;
+}
+
+.rem > p{
+  color: #789E9E;
+  padding: 15px;
+  display: inline;
+  border: solid 2px #789E9E;
+  border-radius: 25px;
+  width: 50px;
+}
+
+
+
+
+.register {
+position: absolute;
+top: 5%;
+left: 70%;
+height: 100%;
+width: 100%;
+}
+.forSignIn {
+  font-size: 30px;
+  line-height: 1.14286;
+  font-family: SharpGrotesk, Open Sans, sans-serif;
+  font-weight: 1500;
+  color: antiquewhite;
+}
+.transbox {
+  position: absolute;
+  left: 65%;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  opacity: 0.3;
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+}
+.PolyShelf{
+    font-family: 'Product Sans';
+    line-height: 33px;
+    position: relative;
+    top: 5%;
+    left: 5%;
+    font-size: 60px;
+	  color: antiquewhite;
+    font: 400 40px/1.667 "Open Sans", sans-serif;
+}

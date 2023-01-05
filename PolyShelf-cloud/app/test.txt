@@ -1,0 +1,57 @@
+<div>
+    <div id="section1">
+	<form action={{ url_for("main.upload_file") }} method="post" enctype="multipart/form-data">
+	    {{ u_form.hidden_tag() }}
+	    <p>Choose a file to upload:</p>
+	    <p>{{ u_form.file() }}</p>
+	    <div float="left">
+		{{ u_form.submit() }}
+	    </div>
+	</form>
+    </div>
+
+</div>
+
+<div>
+    <div id="section2">
+	<form action={{url_for("main.create_dir")}} method="post">
+	    {{ d_form.hidden_tag() }}
+	    <p>
+		{{ d_form.dir_name.label }}
+		{{ d_form.dir_name(size=10) }}<br>
+	    </p>
+	    <p>{{ d_form.submit() }}</p>
+	</form>
+    </div>
+
+</div>
+
+<div>
+    <div id="section3">
+	    <p>Enter the name of File/Folder to delete: <input id="del_file_name" type="text"></p>
+	    <Button id="delbutton">Delete</Button>
+	<br>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class ="btn-group">
+/div>
+<div >
+    <Button id="alt1">Create Folder</Button>
+</div>
+<div>
+    <Button id="alt2">Create Folder</Button>
+</div>   <br>
+<div>
+    <Button id="alt0">Add file</Button>
+<
+</div>

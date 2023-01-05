@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block body %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
+
+<br>
+
+<div class="buttons">
+	<button id="newFile" class="newFile">Pridaj súbor</button>
+	<button id="newFolder" class="newFolder">Nový priečinok</button>
+	<button id="delete" class="delete">Vymazať súbor</button>
+</div>
+
+
+<div id="myModal" class="modal">
+
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<h2>Nahrať súbor</h2>
+		</div>
+		<div class="modal-body">
+			<div>
+				<div id="section1">
+				<form action={{ url_for("main.upload_file") }} method="post" enctype="multipart/form-data">
+					{{ u_form.hidden_tag() }}
+					<p>Vyberte súbor ktorý chcete nahrať:</p>
+					<p>{{ u_form.file() }}</p>
+					<div float="left">
+					{{ u_form.submit() }}
+					</div>
+				</form>
+				</div>
+			
+			</div>
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>
+
+</div>
+
+<div id="myModal1" class="modal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<h2>Vytvor pričinok</h2>
+		</div>
+		<div class="modal-body">
+			<div>
+				<div id="section2">
+				<form action={{url_for("main.create_dir")}} method="post">
+					{{ d_form.hidden_tag() }}
+					<p>
+					{{ d_form.dir_name.label }}
+					{{ d_form.dir_name(size=10) }}<br>
+					</p>
+					<p>{{ d_form.submit() }}</p>
+				</form>
+				</div>
+			
+			</div>
+			
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>
+
+</div>
+<div id="myModal2" class="modal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<h2>Vymazať súbor alebo priečinok</h2>
+		</div>
+		<div class="modal-body">
+			<div>
+				<div id="section3">
+					<p>Vlože názov alebo meno priečinku ktorý chcete vymazať: <input id="del_file_name" type="text"></p>
+					<Button id="delbutton">Vymazať</Button>
+				<br>
+				</div>
+			
+			</div>
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>
+
+</div>
+
+
+<script>
+	var datamap = new Map([
+		[document.getElementById("newFile"), document.getElementById("myModal")],
+		[document.getElementById("newFolder"), document.getElementById("myModal1")],
+		[document.getElementById("delete"), document.getElementById("myModal2")],
+
+	]);
+
+	datamap.forEach((value, key) => {
+		doModal(key, value);
+	});
+
+	function doModal(anchor, popupbox) {
+
+		// Get the <span> element that closes the modal
+		var span = popupbox.getElementsByClassName("close")[0];
+
+		anchor.addEventListener("click", function (event) {
+			popupbox.style.display = "block";
+		});
+
+		span.addEventListener("click", function (event) {
+			popupbox.style.display = "none";
+		});
+
+		window.addEventListener("click", function (event) {
+			if (event.target == popupbox) {
+				popupbox.style.display = "none";
+			}
+		});
+	}
+</script>
+
+
+
+
+
+
+<br>
+<br>
+
+<div id="canvas">
+    <div id="screen">
+		<img src="{{url_for('static', filename='img/back.png') }}" onclick="cd('..')" alt="back" width="3%"><p>Priečinky a súbory:</p>
+	</div>
+	<ul id="folders"></ul>
+	<ul id="files"></ul>
+
+</div>
+</div>
+<script type="text/javascript" src={{ url_for('static', filename="js/main2.js")}}></script>
+{% endblock %}

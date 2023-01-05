@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block body %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/login.css') }}">
+<body>
+    <div class="background">
+    <div class ="transbox"></div>
+    <div class="register">		
+    <div class="forSignIn">Log In</div>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=50) }}<br>
+            {% for error in form.email.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+	 <div>
+            Nezaregistrovaný?
+            <a href="/signup">Registrácia</a>
+        </div>
+    </form>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}
