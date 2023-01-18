@@ -45,7 +45,7 @@ def login():
 
 
 @auth.route('/register', methods=['GET', 'POST'])
-def signup():
+def register():
     if current_user.is_authenticated:
         return redirect('/drive')
     form = SignupForm()

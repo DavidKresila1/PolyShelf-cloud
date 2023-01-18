@@ -91,12 +91,6 @@ a {
             0 10px 27px rgba(0, 0, 0, 0.05);
     }
 
-    .nav-link{
-      text-transform: capitalize;
-      font-size: 30px;
-      color: black;
-   }
-
     .nav-menu.active {
         left: 0;
     }
@@ -104,6 +98,11 @@ a {
     .nav-item {
         margin: 2.5rem 0;
     }
+    .nav-link{
+      text-transform: capitalize;
+      font-size: 30px;
+      color: black;
+  }
 
     .hamburger {
         display: block;
@@ -125,9 +124,9 @@ a {
 
 
 ::selection{
-    background: rgba(26,188,156,0.3);
+    background: #1299F3;
   }
-  .loginContainer{
+  .registerContainer{
     max-width: 440px;
     padding: 0 20px;
     margin: 120px auto;
@@ -231,3 +230,4 @@ a {
     background-color: #1299F3;
     color: white;
   }
+

@@ -1,18 +1,132 @@
-<!doctype html>
-<title>PolyShelf</title>
-{% if is_logged_in() %}
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/main.css') }}">
-<Button id="logout" class="logout" onclick="window.location.href ='/logout';">Odhlásenie</Button>
-<br>
-{% endif %}
-<h1 class="PolyShelf">PolyShelf</h1>
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-<ul class=flashes style="color:black">
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
-{% endwith %}
-{% block body %}{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css') }}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/logo_polyshelf.png') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyShelf</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/" class="nav-logo"><img src="{{url_for('static', filename='img/logo_polyshelf.png') }}" alt="logo"><a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/logout" class="nav-link">Odhlásenie</a>
+                </li>
+               
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+</header>
+
+
+
+<div class="button">
+    <button id="newFile" class="newFile">Pridaj súbor</button>
+    <button id="newFolder" class="newFolder">Nový priečinok</button>
+    <button id="delete" class="delete">Vymazať súbor</button>
+</div>
+
+<div id="myModal" class="modal">
+
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<h2>Nahrať súbor</h2>
+		</div>
+		<div class="modal-body">
+			<div>
+				<div id="section1">
+				<form action={{ url_for("main.upload_file") }} method="post" enctype="multipart/form-data">
+					{{ u_form.hidden_tag() }}
+					<p>Vyberte súbor ktorý chcete nahrať:</p>
+					<p>{{ u_form.file() }}</p>
+					<div float="left">
+					{{ u_form.submit() }}
+					</div>
+				</form>
+				</div>
+			
+			</div>
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>
+
+</div>
+
+<div id="myModal1" class="modal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<h2>Vytvor pričinok</h2>
+		</div>
+		<div class="modal-body">
+			<div>
+				<div id="section2">
+				<form action={{url_for("main.create_dir")}} method="post">
+					{{ d_form.hidden_tag() }}
+					<p>
+					{{ d_form.dir_name.label }}
+					{{ d_form.dir_name(size=10) }}<br>
+					</p>
+					<p>{{ d_form.submit() }}</p>
+				</form>
+				</div>
+			
+			</div>
+			
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>
+
+</div>
+<div id="myModal2" class="modal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close">&times;</span>
+			<h2>Vymazať súbor alebo priečinok</h2>
+		</div>
+		<div class="modal-body">
+			<div>
+				<div id="section3">
+					<p>Vlože názov alebo meno priečinku ktorý chcete vymazať: <input id="del_file_name" type="text"></p>
+					<Button id="delbutton">Vymazať</Button>
+				<br>
+				</div>
+			
+			</div>
+		</div>
+		<div class="modal-footer">
+		</div>
+	</div>
+
+</div>
+
+
+
+<div id="canvas">
+    <div id="screen">
+        <div class="canvas-header">
+		    <img src="{{url_for('static', filename='img/back.png') }}" onclick="cd('..')" alt="back" width="3%"><p>Priečinky a súbory:</p>
+        </div>
+    </div>
+	<ul id="folders"></ul>
+	<ul id="files"></ul>
+
+</div>
+</div>
+
+    <script type="text/javascript" src="{{url_for('static', filename='js/modal.js') }}"></script>
+    <script type="text/javascript" src="{{url_for('static', filename='js/main2.js') }}"></script>
+    <script src="{{url_for('static', filename='js/menu.js') }}"></script>
+</body>
+</html>

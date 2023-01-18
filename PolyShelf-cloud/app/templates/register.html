@@ -1,11 +1,37 @@
-{% extends "base.html" %}
-{% block body %}
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/login.css') }}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/register.css') }}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/logo_polyshelf.png') }}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyShelf</title>
+</head>
 <body>
-    <div class="background">
-	<div class ="transbox"></div>
-	<div class="register">		
-	    <div class="forSignIn">Registrácia</div>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/" class="nav-logo"><img src="{{url_for('static', filename='img/logo_polyshelf.png') }}" alt="logo"><a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">Prihlásenie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/register" class="nav-link">Registrácia</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <div class="registerContainer">
+    <div class="wrapper">
+    <div class="title"><span>Registrácia</span></div>
+    <div class="forSignIn">
+    <div class="register">		
 	    <form action="" method="post">
 		{{ form.hidden_tag() }}
 		<p>
@@ -43,7 +69,7 @@
 		</div>
 	    </form>
 	</div>
-    </div>
+</div>
+    <script src="{{url_for('static', filename='js/menu.js') }}"></script>
 </body>
 </html>
-{% endblock %}

@@ -3,18 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css') }}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/logo_polyshelf.png') }}" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PolyShelf</title>
 </head>
 <body>
-    <h1>PolyShelf</h1>
-    <div class="menu">
-        <a href="/register" class="register">Registrácia</a>
-        <a href="/login" class="login">Prihlásenie</a>
+    <header class="header">
+        <nav class="navbar">
+            <a href="/" class="nav-logo"><img src="{{url_for('static', filename='img/logo_polyshelf.png') }}" alt="logo"><a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">Prihlásenie</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/register" class="nav-link">Registrácia</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+</header>
+
+<section class="home">
+    <div class="PolyShelf">
+        <center><h1>PolyShelf</h1></center>
+        <center><p>Vaše bezpečné úložisko</p></center>
     </div>
-    <center><h2>Vaše bezpečné úložisko</h2></center>
-    <a href="/register" class="registerDown">Registrácia</a>
-    <a href="/login" class="loginDown">Prihlásenie</a>
+</section>
+
+
+    <script src="{{url_for('static', filename='js/menu.js') }}"></script>
 </body>
 </html>

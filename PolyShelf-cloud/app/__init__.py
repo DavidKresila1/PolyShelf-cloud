@@ -34,9 +34,11 @@ db = SQLAlchemy(app)
 login = LoginManager()
 
 
+
 from app.controllers.main import main
 from app.controllers.auth import auth 
 
+# Registering imported Blueprints
 
 app.register_blueprint(main)
 app.register_blueprint(auth)
