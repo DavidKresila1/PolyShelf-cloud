@@ -1,27 +1,23 @@
-PolyShelf-cloud
+#PolyShelf-cloud
 
 PolyShelf-cloud is a file storage software that allows you to store and manage your files in the cloud. It is an open source project that is designed to be easy to install and use.
 Installation
 
 PolyShelf-cloud can be installed using the install.sh script provided in the repository. Here are the steps to install PolyShelf-cloud:
 
-    Clone the repository from GitHub:
+Clone the repository from GitHub:
 
-bash
 
-git clone https://github.com/DavidKresila1/PolyShelf-cloud.git
+    git clone https://github.com/DavidKresila1/PolyShelf-cloud.git
 
-    Navigate to the directory:
+Navigate to the directory:
 
-bash
 
-cd PolyShelf-cloud
+    cd PolyShelf-cloud
 
-    Run the install.sh script:
+Run the install.sh script:
 
-bash
-
-./install.sh
+    ./install.sh
 
 The installation script will install all the necessary dependencies and create a virtual environment for PolyShelf-cloud.
 Running PolyShelf-cloud
