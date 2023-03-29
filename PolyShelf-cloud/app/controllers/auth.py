@@ -5,7 +5,6 @@ from flask_login import current_user, login_user, logout_user
 
 from jinja2 import TemplateNotFound
 from flask_admin.contrib.sqla import ModelView
-from flask_admin import Admin
 from app import db, login, app
 
 from app.models.user import User
@@ -13,9 +12,6 @@ from app.models.user import User
 from app.controllers.forms.auth import LoginForm, SignupForm
 
 auth = Blueprint('auth', __name__, template_folder='templates')
-
-admin = Admin(app, name='Dashboard')
-admin.add_view(ModelView(User, db.session))
 
 
 @login.user_loader

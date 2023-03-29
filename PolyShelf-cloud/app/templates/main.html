@@ -75,8 +75,12 @@
 		<div class="modal-body">
 			<div>
 				<div id="section3">
-					<p>Vlože názov alebo meno priečinku ktorý chcete vymazať: <input id="del_file_name" type="text"></p>
-					<Button id="delbutton">Vymazať</Button>
+					<form action={{url_for("main.delete")}} method="post">
+
+						{{ d_form.dir_name.label }}
+						{{ d_form.dir_name(size=10) }}<br>		
+										<p>{{ d_form.submit() }}</p>
+					</form>
 				<br>
 				</div>
 			

@@ -4,7 +4,6 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 
 
@@ -37,13 +36,12 @@ login = LoginManager()
 
 from app.controllers.main import main
 from app.controllers.auth import auth 
-
+from app.controllers.admin import admin_bp
 # Registering imported Blueprints
 
 app.register_blueprint(main)
 app.register_blueprint(auth)
-
-
+app.register_blueprint(admin_bp)
 
 db.init_app(app)
 db.create_all()
